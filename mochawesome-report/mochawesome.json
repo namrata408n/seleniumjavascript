@@ -1,0 +1,187 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-05-24T09:23:27.446Z",
+    "end": "2025-05-24T09:24:25.091Z",
+    "duration": 57645,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fa4bab27-9aeb-4948-8379-3dc55d199f93",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "87897299-c034-403f-9965-8bd330175950",
+          "title": "User Login Test Suite",
+          "fullFile": "D:\\PageobjectMode\\tests\\UserLoginPage.test.js",
+          "file": "\\tests\\UserLoginPage.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"User Login Test Suite\"",
+              "fullTitle": "User Login Test Suite \"before all\" hook in \"User Login Test Suite\"",
+              "timedOut": false,
+              "duration": 18658,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log('Test Suite Started');\ndriver = await new Builder().forBrowser('chrome').build();\nawait driver.manage().window().maximize();\nawait driver.get('https://automationexercise.com/');\nhomePage = new HomePage(driver);\nloginPage = new LoginPage(driver);",
+              "err": {},
+              "uuid": "d3a9b887-3102-48d2-9aa3-886b0639de46",
+              "parentUUID": "87897299-c034-403f-9965-8bd330175950",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"User Login Test Suite\"",
+              "fullTitle": "User Login Test Suite \"after all\" hook in \"User Login Test Suite\"",
+              "timedOut": false,
+              "duration": 505,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();\nconsole.log('Test Suite Completed');",
+              "err": {},
+              "uuid": "14a0e3e1-283b-4dc8-9958-2c9a33143d95",
+              "parentUUID": "87897299-c034-403f-9965-8bd330175950",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Should login an existing user",
+              "fullTitle": "User Login Test Suite Should login an existing user",
+              "timedOut": false,
+              "duration": 14555,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "console.log('Test Case Started');\nawait homePage.clickLoginSignUpLink();\nawait loginPage.login('namrata@email.com', 'Password123');\n// Example assertion: Check for some element visible after login\nconst isLoggedIn = await homePage.isLogoutLinkPresent(); // You must define this in HomePage\nassert.isTrue(isLoggedIn, 'User should be logged in');",
+              "err": {
+                "message": "TypeError: homePage.isLogoutLinkPresent is not a function",
+                "estack": "TypeError: homePage.isLogoutLinkPresent is not a function\n    at Context.<anonymous> (tests\\UserLoginPage.test.js:24:43)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+                "diff": null
+              },
+              "uuid": "aa3f2e84-a155-45c0-b467-ed8259253e3d",
+              "parentUUID": "87897299-c034-403f-9965-8bd330175950",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "aa3f2e84-a155-45c0-b467-ed8259253e3d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14555,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 600000
+        },
+        {
+          "uuid": "bc6dcd5e-5218-43c0-b70f-08633e8a42ac",
+          "title": "User Tegistration Test Suite",
+          "fullFile": "D:\\PageobjectMode\\tests\\UserRegistration.test.js",
+          "file": "\\tests\\UserRegistration.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should register a new user",
+              "fullTitle": "User Tegistration Test Suite Should register a new user",
+              "timedOut": false,
+              "duration": 23906,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "console.log('Test Case Started');\ndriver = await new Builder().forBrowser('chrome').build();\nawait driver.manage().window().maximize();\nawait driver.get('https://automationexercise.com/');\n\nhomePage = new HomePage(driver);\nloginSignupPage = new LoginSignUpPage(driver);\naccountInformationPage = new AccountInformationPage(driver);\n\nawait homePage.clickLoginSignUpLink();\nlet newUserSignUpPresent = await loginSignupPage.isNewUserSignUpLabelPresent();\nassert.isTrue(newUserSignUpPresent);\nawait loginSignupPage.signup('Namrata', 'namrata@email.com');\nlet accountInfoLabelPresent =await accountInformationPage.isAccountInfoLabelPresent();\nassert.isTrue(accountInfoLabelPresent);\nlet userDetails = {\n    title: 'Mrs.', \n    name: 'Namrata Sakpal', \n    password: 'Password123', \n    day: 1, \n    month: 'January', \n    year: 1995,\n    firstName: 'Namrata', \n    lastName: 'Sakpal', \n    company: 'IWAY', \n    address1: 'Prestige Shantiniketan', \n    address2: 'Whitefield', \n    country: 'India', \n    state: 'Karnataka', \n    city: 'Bangalore', \n    zipcode: '560068', \n    mobile: '8956231245'\n};\nawait accountInformationPage.createAccount(userDetails);\n//await accountInformationPage.fillAddressDetails('Namrata', 'Sakpal', 'IWAY', 'Kadugodi', 'Whitefield', 'India', 'Karnataka', '560067', '9876543210');\nlet accountCreatedLabelPresent = await accountInformationPage.isAccountCreatedLabelPresent();\nassert.isTrue(accountCreatedLabelPresent);\nawait accountInformationPage.clickContinueButton();\nawait homePage.clickDeleteAccountLink();\ndriver.quit()",
+              "err": {
+                "message": "NoSuchWindowError: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=136.0.7103.114)",
+                "estack": "NoSuchWindowError: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=136.0.7103.114)\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:524:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:456:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Driver.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:745:17)\n    at async Driver.findElements (node_modules\\selenium-webdriver\\lib\\webdriver.js:1073:17)",
+                "diff": null
+              },
+              "uuid": "2656bf8e-33c5-4892-9abf-415e6c05a046",
+              "parentUUID": "bc6dcd5e-5218-43c0-b70f-08633e8a42ac",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2656bf8e-33c5-4892-9abf-415e6c05a046"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 23906,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 600000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 600000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "./mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
