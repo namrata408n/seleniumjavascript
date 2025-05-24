@@ -7,7 +7,7 @@ describe('User Login Test Suite', function () {
     let driver, homePage, loginPage;
 
     before(async () => {
-        console.log('Test Suite Started');
+        //console.log('Test Suite Started');
         driver = await new Builder().forBrowser('chrome').build();
         await driver.manage().window().maximize();
         await driver.get('https://automationexercise.com/');
